@@ -25,10 +25,10 @@ class Board {
 const observer = new MutationObserver(mutations => {
   observer.disconnect()
   currentBoard && currentBoard.destroy()
-  _.in(250, _build)
+  _.in(2000, _build)
 })
 
-_.in(1000, _build)
+_.in(2000, _build)
 
 var currentBoard
 
@@ -43,3 +43,17 @@ function _build () {
   observer.observe(board,        { attributes: true })
   observer.observe(boardWrapper, { childList:  true })
 }
+
+let faFontPath = chrome.extension.getURL(
+                   '/fonts/fontawesome-webfont.woff2?v=4.7.0')
+let includeFaFonts = `
+  <style>
+    @font-face {
+      font-family: 'FontAwesome';
+      src:url('${faFontPath}')format('woff2');
+      font-weight:normal;
+      font-style:normal;
+    }
+  </style>`
+
+$('head').append(includeFaFonts)
