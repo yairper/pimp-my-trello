@@ -1,0 +1,70 @@
+.list-card .list-card-labels {
+  visibility: hidden;
+  padding-bottom: 6px;
+}
+
+
+
+.mod-show-menu.board-header-btn {
+  padding: 0;
+}
+
+a.mod-show-menu.board-header-btn:hover {
+  background: none;
+}
+
+.mod-show-menu .board-header-btn-text {
+  display: none;
+}
+
+
+
+.board-menu-header-close-button {
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.board-header-btn-name {
+  position: relative;
+  bottom: 1px;
+}
+
+.board-header-btn-name-with-org-logo > img {
+  top: auto;
+  bottom: 7px;
+  left: 1px;
+  height: 15px;
+  width: 15px;
+}
+
+.board-main-content .board-header-btn-name-with-org-logo > span {
+  padding: 0 6px 0 15px;
+}
+
+
+
+.pmt-card-tags {
+  position: absolute;
+  left: 11px;
+
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.pmt-card-tags.pmt-animate {
+  opacity: 1;
+}
+
+.pmt-card-tags > span {
+  padding: 3px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.pmt-card-tags > i {
+  vertical-align: text-bottom;
+}
+
+.pmt-card-tags > * + * {
+  margin-left: 3px;
+}
