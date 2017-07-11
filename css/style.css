@@ -55,16 +55,24 @@ a.mod-show-menu.board-header-btn:hover {
   opacity: 1;
 }
 
+.pmt-card-tags > * {
+  margin-right: 5px;
+}
+
 .pmt-card-tags > span {
-  padding: 3px 5px;
+  display: inline-block;
+  padding: 0 5px;
   font-size: 12px;
   border-radius: 3px;
+  margin-bottom: 3px;
+}
+
+.pmt-card-tags > span:empty {
+  padding: 9px;
+  vertical-align: bottom;
 }
 
 .pmt-card-tags > i {
   vertical-align: text-bottom;
-}
-
-.pmt-card-tags > * + * {
-  margin-left: 3px;
+  margin-right: 8px;
 }

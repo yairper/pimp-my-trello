@@ -1,13 +1,30 @@
 class Board {
   constructor () {
     this.$element = $('#board')
-
-    this._buildLists()
-    this._addTags()
+    this._build()
   }
 
-  _buildLists() {
-    let $lists = this.$element.find('.list-cards')
+  _build () {
+    this._buildLists()
+    this._addTags()
+    this._listenToEvents()
+  }
+
+  _listenToEvents () {
+    this._observer = new MutationObserver(mutations => {
+      this._rebuild()
+    })
+
+    this._observer.observe(this.$element[0], { attributes: true })
+  }
+
+  _rebuild () {
+    this.destroy()
+    _.in(2000, () => this._build())
+  }
+
+  _buildLists () {
+    let $lists = this.$element.$('.list-cards')
 
     this._lists =
       $lists.map((i, list) => new CardsList(list))
@@ -18,42 +35,22 @@ class Board {
   }
 
   destroy () {
+    this._observer.disconnect()
     this._lists.forEach(l => l.destroy())
   }
 }
 
-const observer = new MutationObserver(mutations => {
-  observer.disconnect()
-  currentBoard && currentBoard.destroy()
-  _.in(2000, _build)
-})
+let content = $('#content')[0]
 
-_.in(2000, _build)
+const contentObserver = new MutationObserver(_build)
+
+if ($('#board').length == 0)
+  contentObserver.observe(content, { childList: true })
+else
+  _build()
 
 var currentBoard
-
 function _build () {
+  currentBoard && currentBoard.destroy()
   currentBoard = new Board()
-
-  let $board = currentBoard.$element
-
-  let board = $board[0]
-  let boardWrapper = $('.board-wrapper')[0]
-
-  observer.observe(board,        { attributes: true })
-  observer.observe(boardWrapper, { childList:  true })
 }
-
-let faFontPath = chrome.extension.getURL(
-                   '/fonts/fontawesome-webfont.woff2?v=4.7.0')
-let includeFaFonts = `
-  <style>
-    @font-face {
-      font-family: 'FontAwesome';
-      src:url('${faFontPath}')format('woff2');
-      font-weight:normal;
-      font-style:normal;
-    }
-  </style>`
-
-$('head').append(includeFaFonts)

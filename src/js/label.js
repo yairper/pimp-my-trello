@@ -4,7 +4,7 @@ class Label {
   }
 
   get name () {
-    return this.iconName || this.$el.text()
+    return this.iconName || this.$el.text().trim()
   }
 
   get iconName () {

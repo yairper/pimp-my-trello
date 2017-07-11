@@ -7,7 +7,7 @@ class CardsList {
   }
 
   _buildCards() {
-    let $cards = this.$el.find('.list-card:not(.placeholder):not(.hide)')
+    let $cards = this.$el.$('.list-card:not(.placeholder):not(.hide)')
 
     this._cards = $cards.map((i, card) => new Card(card))
   }
@@ -15,6 +15,16 @@ class CardsList {
   _listenToEvents () {
     this._observer = new MutationObserver(mutations => {
       _.extend(mutations, CardsListMutation)
+
+      if (mutations._addedNodeClass != 'pmt-card-tags' &&
+          mutations._removedNodeClass != 'pmt-card-tags') {
+        let listName = $(mutations[0].target).closest('.list').$('h2').text()
+        console.log(listName,
+                    ' --- ',
+                    mutations._addedNodeClass,
+                    ' --- ',
+                    mutations._removedNodeClass)
+      }
 
       if (mutations.cardDragged)
         this._destroyCards()
@@ -26,6 +36,12 @@ class CardsList {
         this._rebuild()
 
       if (mutations.cardLeft)
+        this._rebuild()
+
+      if (mutations.cardMovedOrDeleted)
+        this._rebuild()
+
+      if (mutations.cardCreated)
         this._rebuild()
     })
 

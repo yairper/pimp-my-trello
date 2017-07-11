@@ -1,11 +1,11 @@
 const CardsListMutation = {
   get cardDragged () {
-    return this._addedNodeClass.includes('placeholder') &&
-           this._removedNodeClass.includes('ui-droppable')
+    return this._removedNodeClass.includes('js-member-droppable') &&
+          !this._addedNodeClass.includes('js-member-droppable')
   },
 
   get cardDropped () {
-    return this._addedNodeClass.includes('ui-droppable') &&
+    return this._addedNodeClass.includes('js-member-droppable') &&
            this._removedNodeClass.includes('placeholder')
   },
 
@@ -17,6 +17,15 @@ const CardsListMutation = {
   get cardEnter () {
     return this._addedNodeClass.includes('placeholder') &&
           !this._removedNodeClass
+  },
+
+  get cardMovedOrDeleted () {
+    return this._removedNodeClass.includes('js-member-droppable') &&
+          !this._addedNodeClass
+  },
+
+  get cardCreated () {
+    return this._addedNodeClass.includes('is-due-complete')
   },
 
   get _addedNodeClass () {

@@ -11,7 +11,7 @@ class Card {
       this._listenToEvents()
     })
 
-    let labels = this.$card.find('.list-card-labels')[0]
+    let labels = this.$card.$('.list-card-labels')[0]
     this._observer.observe(labels, { childList: true })
   }
 
@@ -31,7 +31,7 @@ class Card {
   get top () {
     let firstCardTop =
       this.$card.closest('.list')
-                .find('.list-card:not(.hide)')
+                .$('.list-card:not(.hide)')
                 .first()
                 .position()
                 .top
@@ -40,7 +40,7 @@ class Card {
   }
 
   get labels () {
-    let labels = this.$card.find('.card-label')
+    let labels = this.$card.$('.card-label')
 
     return labels.map((i, label) => new Label(label))
   }

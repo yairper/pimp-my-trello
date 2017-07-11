@@ -25,6 +25,7 @@
       "js": [
         "src/js/helpers.js",
         "src/js/zepto.min.js",
+        "src/js/zepto_extensions.js",
         "src/js/label.js",
         "src/js/tags_list.js",
         "src/js/tags/label_tag.js",
@@ -33,7 +34,8 @@
         "src/js/cards_list_mutations.js",
         "src/js/cards_list.js",
         "src/js/board.js",
-        "src/js/toggle_menu_icons.js"
+        "src/js/toggle_menu_icons.js",
+        "src/js/inject_fa_font_face.js"
       ],
       "css": [
         "css/style.css",

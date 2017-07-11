@@ -4,4 +4,3 @@ function IconTag ($label) {
        style="color: ${$label.color};">
     </i>`
 }
-
