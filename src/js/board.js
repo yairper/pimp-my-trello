@@ -44,10 +44,10 @@ let content = $('#content')[0]
 
 const contentObserver = new MutationObserver(_build)
 
-if ($('#board').length == 0)
-  contentObserver.observe(content, { childList: true })
-else
+if ($('#board').length)
   _build()
+
+contentObserver.observe(content, { childList: true })
 
 var currentBoard
 function _build () {
