@@ -26,6 +26,7 @@
         "src/js/helpers.js",
         "src/js/zepto.min.js",
         "src/js/zepto_extensions.js",
+        "src/js/builder.js",
         "src/js/label.js",
         "src/js/tags_list.js",
         "src/js/tags/label_tag.js",
