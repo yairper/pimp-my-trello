@@ -19,11 +19,13 @@ class CardsList {
       if (mutations._addedNodeClass != 'pmt-card-tags' &&
           mutations._removedNodeClass != 'pmt-card-tags') {
         let listName = $(mutations[0].target).closest('.list').$('h2').text()
-        console.log(listName,
+        /*
+         * console.log(listName,
                     ' --- ',
                     mutations._addedNodeClass,
                     ' --- ',
                     mutations._removedNodeClass)
+                    */
       }
 
       if (mutations.cardDragged)

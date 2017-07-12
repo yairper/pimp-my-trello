@@ -5,14 +5,25 @@ class Card {
   }
 
   _listenToEvents () {
-    this._observer = new MutationObserver(mutations => {
-      this.destroy()
-      this.addTags()
-      this._listenToEvents()
+    this._labelsObserver = new MutationObserver(this._rebuild)
+    this._badgesObserver = new MutationObserver(mutations => {
+      _.extend(mutations, CardsListMutation)
+
+      if (!mutations._removedNodeClass)
+        this._rebuild()
     })
 
     let labels = this.$card.$('.list-card-labels')[0]
-    this._observer.observe(labels, { childList: true })
+    this._labelsObserver.observe(labels, { childList: true })
+
+    let badges = this.$card.$('.badges')[0]
+    this._badgesObserver.observe(badges, { childList: true })
+  }
+
+  _rebuild () {
+    this.destroy()
+    this.addTags()
+    this._listenToEvents()
   }
 
   after (el) {
@@ -24,7 +35,8 @@ class Card {
   }
 
   destroy () {
-    this._observer.disconnect()
+    this._labelsObserver.disconnect()
+    this._badgesObserver.disconnect()
     this.tagsList.remove()
   }
 
