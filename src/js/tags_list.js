@@ -2,9 +2,9 @@ class TagsList {
   constructor (card) {
     let cardTop = card.top
 
-    this.$tags = $('<div/>')
-    this.$tags.addClass("pmt-card-tags")
-    this.$tags.css({ top: cardTop + 4 })
+    this.$tags = $$.div.class('pmt-card-tags')
+                       .top(cardTop + 4)
+                       .$el
 
     card.labels.forEach(label => {
       let tag = label.iconName ? IconTag(label) :
