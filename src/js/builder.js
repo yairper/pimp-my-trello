@@ -1,16 +1,4 @@
-class $$ {
-  static get span () {
-    return new $$('span')
-  }
-
-  static get div () {
-    return new $$('div')
-  }
-
-  static get i () {
-    return new $$('i')
-  }
-
+class Builder {
   constructor (tagName) {
     this.$el = $(`<${tagName} />`)
   }
@@ -54,3 +42,9 @@ class $$ {
     return this
   }
 }
+
+const $$ = new Proxy({}, {
+  get (target, name) {
+    return new Builder(name)
+  }
+})
