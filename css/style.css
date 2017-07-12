@@ -1,6 +1,6 @@
 .list-card .list-card-labels {
   visibility: hidden;
-  padding-bottom: 6px;
+  padding-bottom: 13px;
 }
 
 
@@ -68,7 +68,7 @@ a.mod-show-menu.board-header-btn:hover {
 }
 
 .pmt-card-tags > span:empty {
-  padding: 9px;
+  padding: 10px;
   vertical-align: bottom;
 }
 
