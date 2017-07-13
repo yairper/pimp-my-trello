@@ -2,9 +2,8 @@ class TagsList {
   constructor (card) {
     let cardTop = card.top
 
-    this.$tags = $$.div.class('pmt-card-tags')
-                       .top(cardTop + 4)
-                       .$el
+    this.$tags = a.div.class('pmt-card-tags')
+                      .top(cardTop + 4)
 
     card.labels.forEach(label => {
       let tag = label.iconName ? IconTag(label) :
@@ -24,4 +23,3 @@ class TagsList {
     _.in(50, () => this.$tags.remove())
   }
 }
-
