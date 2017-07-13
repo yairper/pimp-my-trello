@@ -5,7 +5,7 @@ class Card {
   }
 
   _listenToEvents () {
-    this._labelsObserver = new MutationObserver(this._rebuild)
+    this._labelsObserver = new MutationObserver(() => this._rebuild())
     this._badgesObserver = new MutationObserver(mutations => {
       _.extend(mutations, CardsListMutation)
 
