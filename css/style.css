@@ -111,5 +111,10 @@ a.mod-show-menu.board-header-btn:hover {
 
 .pmt-card-tags > i,
 .pmt-card-tags > span {
+  height: 18px;
   margin-bottom: 5px;
+}
+
+.pmt-card-tags > i {
+  margin-bottom: 3px;
 }
