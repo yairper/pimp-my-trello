@@ -31,8 +31,8 @@ div.badges {
   text-align: center;
 
   background-image: none !important;
-  font-size: 10px;
-  opacity: .5;
+  font-size: 11px;
+  opacity: .8;
   text-overflow: initial;
 }
 
@@ -45,7 +45,7 @@ div.badges {
   font-size: 15px;
   position: absolute;
   left: 27px;
-  top: 0;
+  top: 1px;
 }
 
 .badge.badge-points.point-count:not(.consumed) {
