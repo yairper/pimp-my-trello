@@ -28,8 +28,6 @@
         "src/js/builder.js",
         "src/js/label.js",
         "src/js/tags_list.js",
-        "src/js/tags/label_tag.js",
-        "src/js/tags/icon_tag.js",
         "src/js/card.js",
         "src/js/cards_list_observer.js",
         "src/js/cards_list_mutations.js",

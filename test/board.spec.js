@@ -5,10 +5,10 @@ describe('Board', () => {
 
   before(() => {
     bodyHas(
-      a.div('#board').with(
-        a.div('.list-cards'),
-        a.div('.list-cards'),
-        a.div('.list-cards')
+      a`#board`.with(
+        a`.list-cards`,
+        a`.list-cards`,
+        a`.list-cards`
       )
     )
   })

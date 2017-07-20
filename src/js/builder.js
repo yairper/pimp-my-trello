@@ -3,7 +3,7 @@ a = new Proxy(new Function (), {
     let element = document.createElement(tagName)
     _.extend(aApi, element)
     
-    return new Proxy(function () {}, {
+    return new Proxy(new Function (), {
       apply (target, _this, idsAndClasses) {
         let classes = idsAndClasses[0].split('.')
         if (classes[0].startsWith('#')) {
@@ -23,6 +23,11 @@ a = new Proxy(new Function (), {
         return aApi[property].bind(element)
       }
     })
+  },
+
+  apply (__, _this, args) {
+    let idAndClasses = args[0][0]
+    return a.div(idAndClasses)
   }
 })
 

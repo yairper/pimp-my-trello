@@ -27,8 +27,10 @@ function EpicTag (label) {
 }
 
 function IconTag (label) {
-  let tag = an.i`.fa.${label.iconName}`
+  let tag = an.i(`.fa.${label.iconName}`)
                  .color(label.color)
+                 .if(label.iconTitle)
+                   .title(label.iconTitle)
 
   if (label.iconTitle)
     tag.title(label.iconTitle)

@@ -7,11 +7,11 @@ describe('CardsList', () => {
 
   beforeEach(() => {
     bodyHas(
-      a.div('.list-cards').with(
-        a.div('.list-card'),
-        a.div('.list-card'),
-        a.div('.list-card.hide'),
-        a.div('.list-card.placeholder')
+      a`.list-cards`.with(
+        a`.list-card`,
+        a`.list-card`,
+        a`.list-card.hide`,
+        a`.list-card.placeholder`
       )
     )
 
@@ -31,9 +31,9 @@ describe('CardsList', () => {
 
   context('cardDragged', () => {
     it('destorys removed card', () => {
-      let cardBeingRemoved = a.div('.list-card')
-      let cardsList = a.div('.list-cards')
-                           .with(cardBeingRemoved)
+      let cardBeingRemoved = a`.list-card`
+      let cardsList        = a`.list-cards`
+                               .with(cardBeingRemoved)
 
       bodyHas(cardsList)
 
