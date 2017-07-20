@@ -1,6 +1,20 @@
-.list-card .list-card-labels {
-  visibility: hidden;
-  padding-bottom: 13px;
+.list-card-title {
+  padding-left: 5px;
+}
+
+.list-card-members {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+}
+
+
+.list-card-labels {
+  min-height: 21px;
+}
+
+.list-card-labels .card-label {
+  display: none;
 }
 
 
@@ -44,15 +58,18 @@ a.mod-show-menu.board-header-btn:hover {
 
 
 .pmt-card-tags {
-  position: absolute;
-  left: 11px;
-
+  width: 225px;
   opacity: 0;
-  transition: opacity .2s ease-in-out;
 }
 
 .pmt-card-tags.pmt-animate {
+  transition: opacity 0.35s linear;
   opacity: 1;
+}
+
+.pmt-card-tags > i:first-child,
+.pmt-card-tags > span:first-child {
+  margin-left: 65px;
 }
 
 .pmt-card-tags > * {
@@ -61,18 +78,38 @@ a.mod-show-menu.board-header-btn:hover {
 
 .pmt-card-tags > span {
   display: inline-block;
-  padding: 0 5px;
-  font-size: 12px;
-  border-radius: 3px;
-  margin-bottom: 3px;
+  min-width: 10px;       /* text.length == 1 */
+  text-align: center;    /* text.length <= 1 */
 }
 
 .pmt-card-tags > span:empty {
-  padding: 9px;
-  vertical-align: bottom;
+  height: 18px;
 }
 
-.pmt-card-tags > i {
-  vertical-align: text-bottom;
-  margin-right: 8px;
+.pmt-card-tags > div,
+.pmt-card-tags > span {
+  vertical-align: top;
+  padding: 0 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #666;
+}
+
+.pmt-card-tags > div {
+  width: 220px;
+  padding-top:    3px;
+  padding-bottom: 3px;
+}
+
+.pmt-card-tags div:first-child {
+  margin-top: 23px;
+}
+
+.pmt-card-tags > div::before {
+  content: '- ';
+}
+
+.pmt-card-tags > i,
+.pmt-card-tags > span {
+  margin-bottom: 5px;
 }

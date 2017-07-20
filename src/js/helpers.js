@@ -1,4 +1,4 @@
-const _ = {
+_ = {
   in (ms, fn) {
     setTimeout(fn, ms)
   },
@@ -17,27 +17,17 @@ const _ = {
               .replace('rgb', 'rgba')
   },
 
-  extend (target, mixin) {
-    let origProto = target.__proto__
-    let mixinCopy = this._copyProperties(mixin)
-
-    target.__proto__ = mixinCopy
-    mixinCopy.__proto__ = origProto
-  },
-
-  _copyProperties (obj) {
-    let copy = {}
-
-    let keys = Object.getOwnPropertyNames(obj)
+  extend (source, target = {}) {
+    let keys = Object.getOwnPropertyNames(source)
     for (let i = 0; i < keys.length; i++) {
       let name = keys[i]
       let descriptor =
-        Object.getOwnPropertyDescriptor(obj, name)
+        Object.getOwnPropertyDescriptor(source, name)
 
-      Object.defineProperty(copy, name, descriptor)
+      Object.defineProperty(target, name, descriptor)
     }
 
-    return copy
+    return target
   }
 }
 

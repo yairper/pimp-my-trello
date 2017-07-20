@@ -1,25 +1,22 @@
-class TagsList {
-  constructor (card) {
-    let cardTop = card.top
+TagsList = function (card) {
+  let labels =
+    card.labels.filter(l => l.type == 'label')
+               .map(l => LabelTag(l))
 
-    this.$tags = a.div.class('pmt-card-tags')
-                      .top(cardTop + 4)
+  let icons =
+    card.labels.filter(l => l.type == 'icon')
+               .map(l => IconTag(l))
 
-    card.labels.forEach(label => {
-      let tag = label.iconName ? IconTag(label) :
-                                 LabelTag(label)
+  let epics =
+    card.labels.filter(l => l.type == 'epic')
+               .map(l => EpicTag(l))
 
-      this.$tags.append(tag)
-    })
+  return a.div('.pmt-card-tags')
+          .with(...labels.concat(icons, epics))
+}
 
-    card.after(this.$tags)
-
-    _.in(0, () => this.$tags.addClass('pmt-animate'))
-  }
-
-  remove () {
-    this.$tags.removeClass('pmt-animate')
-
-    _.in(50, () => this.$tags.remove())
-  }
+EpicTag = function (label) {
+  return a.div('.pmt-card-epic')
+               .text(label.epicName)
+               .bgColor(_.rgba(label.color, .2))
 }

@@ -1,43 +1,75 @@
-const a = new Proxy({}, {
-  get (target, tagName) {
-    let $el = $(`<${tagName} />`)
+a = new Proxy(new Function (), {
+  get (__, tagName) {
+    let element = document.createElement(tagName)
+    _.extend(aApi, element)
+    
+    return new Proxy(function () {}, {
+      apply (target, _this, idsAndClasses) {
+        let classes = idsAndClasses[0].split('.')
+        if (classes[0].startsWith('#')) {
+          let idSelector = classes.splice(0, 1)[0]
+          let id = idSelector.slice(1)
+          element.setAttribute('id', id)
+        } else {
+          classes.splice(0, 1)
+        }
 
-    return new Proxy($el, {
-      get (target, name, proxy) {
-        if (name in aApi)
-          return aApi[name].bind(proxy)
+        classes.forEach(c => element.classList.add(c))
 
-        return target[name]
+        return element
+      },
+
+      get (__, property) {
+        return aApi[property].bind(element)
       }
     })
   }
 })
 
-const an = a
+an = a
+
+const animateFlag = Symbol()
 
 var aApi = {
-  ['class'] (...names) {
-    names.forEach(name =>
-      this.addClass(name)
-    )
+  title (text) {
+    this.setAttribute('title', text)
+
+    return this
+  },
+
+  ['with'] (...children) {
+    children.forEach(child => {
+      this.appendChild(child)
+    })
+    return this
+  },
+
+  get animate () {
+    this[animateFlag] = true
 
     return this
   },
 
   bgColor (color) {
-    this.css('background-color', color)
+    this.style.backgroundColor = color
 
     return this
   },
 
   color (color) {
-    this.css('color', color)
+    this.style.color = color
+
+    return this
+  },
+
+  text (content) {
+    this.textContent = content
 
     return this
   },
 
   top (position) {
-    this.css('top', position)
+    this.style.top = position
 
     return this
   }

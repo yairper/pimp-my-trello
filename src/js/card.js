@@ -1,59 +1,67 @@
-class Card {
-  constructor (card) {
-    this.$card = $(card)
-    this._listenToEvents()
-  }
+Card = function (element) {
+  this.element = element
 
-  _listenToEvents () {
-    this._labelsObserver = new MutationObserver(() => this._rebuild())
-    this._badgesObserver = new MutationObserver(mutations => {
-      _.extend(mutations, CardsListMutation)
+  this.switchBoardCardsBlinkBug = new MutationObserver(() => this._rebuild())
+  this.switchBoardCardsBlinkBug.observe(element, { childList: true })
 
-      if (!mutations._removedNodeClass)
-        this._rebuild()
-    })
+  this.addTags()
+  this._rebuildTagsOnLabelsChange()
+}
 
-    let labels = this.$card.$('.list-card-labels')[0]
-    this._labelsObserver.observe(labels, { childList: true })
-
-    let badges = this.$card.$('.badges')[0]
-    this._badgesObserver.observe(badges, { childList: true })
-  }
-
+Card.prototype = {
   _rebuild () {
     this.destroy()
-    this.addTags()
-    this._listenToEvents()
-  }
+    this._rebuildTagsOnLabelsChange()
+    _.in(50, () => this.addTags())
+  },
 
-  after (el) {
-    this.$card.after(el)
-  }
+  _rebuildTagsOnLabelsChange () {
+    this.labelsChanged = new MutationObserver(mutations => {
+      _.extend(CardsListMutation, mutations)
+
+      if (mutations._addedNodeClass.includes('pmt-card-tags'))
+        return
+
+      this.addTags()
+    })
+
+    let labels = this.element.querySelector('.list-card-labels')
+
+    this.labelsChanged.observe(labels,  { childList: true })
+  },
 
   addTags () {
-    this.tagsList = new TagsList(this)
-  }
+    this.tagsList = TagsList(this)
+    this.element
+        .querySelector('.list-card-labels')
+        .appendChild(this.tagsList)
+    _.in(0, () =>
+      this.tagsList.classList.add('pmt-animate'))
+  },
 
   destroy () {
-    this._labelsObserver.disconnect()
-    this._badgesObserver.disconnect()
-    this.tagsList.remove()
-  }
+    this.labelsChanged.disconnect()
+
+    if (this.tagsList.parentNode)
+      this.tagsList.parentNode.removeChild(this.tagsList)
+  },
 
   get top () {
     let firstCardTop =
-      this.$card.closest('.list')
+      $(this.element).closest('.list')
                 .$('.list-card:not(.hide)')
                 .first()
                 .position()
                 .top
 
-    return this.$card.position().top - firstCardTop
-  }
+    return $(this.element).position().top - firstCardTop
+  },
 
   get labels () {
-    let labels = this.$card.$('.card-label')
+    let labels = this.element.querySelectorAll('.card-label')
 
-    return labels.map((i, label) => new Label(label))
+    results = []
+    labels.forEach(l => results.push(new Label(l)))
+    return results
   }
 }

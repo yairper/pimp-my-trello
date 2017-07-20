@@ -1,6 +1,4 @@
 function LabelTag ($label) {
-  let labelColor = _.rgba($label.color, 0.25)
-
-  return a.span.bgColor(labelColor)
-               .text($label.name)
+  return a.span.text($label.name)
+               .bgColor(_.rgba($label.color, .2))
 }
