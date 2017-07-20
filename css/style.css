@@ -58,7 +58,7 @@ a.mod-show-menu.board-header-btn:hover {
 
 
 .pmt-card-tags {
-  width: 225px;
+  width: 205px;
   opacity: 0;
 }
 
@@ -116,5 +116,7 @@ a.mod-show-menu.board-header-btn:hover {
 }
 
 .pmt-card-tags > i {
+  font-size: 18px;
   margin-bottom: 3px;
+  margin-right: 5px;
 }
