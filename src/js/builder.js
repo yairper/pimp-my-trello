@@ -4,14 +4,24 @@ a = new Proxy(new Function (), {
     _.extend(aApi, element)
     
     return new Proxy(new Function (), {
-      apply (target, _this, idsAndClasses) {
-        let classes = idsAndClasses[0].split('.')
-        if (classes[0].startsWith('#')) {
-          let idSelector = classes.splice(0, 1)[0]
+      apply (target, _this, args) {
+        let template = args[0]
+        let idAndClasses
+
+        if (typeof template == 'string')
+          idAndClasses = template
+        else
+          idAndClasses = template.reduce(
+            (full, part, idx) => full + part + (args[idx + 1] || ''),
+            ''
+          )
+
+        let classes = idAndClasses.split('.')
+
+        let idSelector = classes.splice(0, 1)[0]
+        if (idSelector) {
           let id = idSelector.slice(1)
           element.setAttribute('id', id)
-        } else {
-          classes.splice(0, 1)
         }
 
         classes.forEach(c => element.classList.add(c))
