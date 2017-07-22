@@ -5,16 +5,9 @@ a = an = new Proxy(new Function (), {
     
     return new Proxy(new Function (), {
       apply (target, _this, args) {
-        let template = args[0]
-        let idAndClasses
-
-        if (typeof template == 'string')
-          idAndClasses = template
-        else
-          idAndClasses = template.reduce(
-            (full, part, idx) => full + part + (args[idx + 1] || ''),
-            ''
-          )
+        let idAndClasses =
+          typeof args[0] == 'string' ? args[0]
+                                     : templateToString(args)
 
         let classes = idAndClasses.split('.')
 
@@ -40,6 +33,12 @@ a = an = new Proxy(new Function (), {
     return a.div(idAndClasses)
   }
 })
+
+function templateToString (template) {
+  return template[0].reduce((full, part, idx) =>
+    full + part + (template[idx + 1] || ''),
+    '')
+}
 
 var aApi = {
   title (text) {
