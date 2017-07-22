@@ -46,28 +46,30 @@ a.board-header-btn-filter-indicator {
   margin-right: 15px;
 }
 
-
-
 .board-menu-header-close-button {
   margin-top: 5px;
   text-decoration: none;
 }
 
-.board-header-btn-name {
+
+
+.board-header .js-open-org-menu,
+.board-header .mod-left > * {
+  opacity: .2;
+}
+
+.board-header .js-open-org-menu:hover,
+.board-header .mod-left > :hover {
+  opacity: 1;
+}
+
+.board-header .board-header-btn-name {
   position: relative;
   bottom: 1px;
 }
 
-.board-header-btn-name-with-org-logo > img {
-  top: auto;
-  bottom: 6px;
-  left: 1px;
-  height: 18px;
-  width: 18px;
-}
-
-.board-main-content .board-header-btn-name-with-org-logo > span {
-  padding: 0 6px 0 20px;
+.board-header .js-rename-board {
+  right: 3px;
 }
 
 
