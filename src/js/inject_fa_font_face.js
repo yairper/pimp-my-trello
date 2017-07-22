@@ -1,6 +1,6 @@
 injectFAFontFace = function () {
   let faFontPath =
-    chrome.extension.getURL('/fonts/fontawesome-webfont.woff2?v=4.7.0')
+    chrome.extension.getURL('/src/fonts/fontawesome-webfont.woff2?v=4.7.0')
 
   let includeFaFonts =
     a.style.html(`

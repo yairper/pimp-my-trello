@@ -38,13 +38,13 @@
       ],
       "css": [
         "src/css/scrum_for_trello_overrides.css",
-        "css/style.css",
-        "css/font-awesome.min.css"
+        "src/css/style.css",
+        "src/css/font-awesome.min.css"
       ]
     }
   ],
 
   "web_accessible_resources": [
-    "fonts/fontawesome-webfont.woff2"
+    "src/fonts/fontawesome-webfont.woff2"
   ]
 }
