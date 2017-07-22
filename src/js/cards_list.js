@@ -6,8 +6,7 @@ CardsList = function (element) {
 
 CardsList.prototype = {
   _buildCards() {
-    let cards = this.element.querySelectorAll(
-      '.list-card:not(.placeholder)')
+    let cards = this.element.querySelectorAll('.list-card')
 
     this._cards = []
 

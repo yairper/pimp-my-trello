@@ -9,8 +9,8 @@ describe('CardsList', () => {
       a`.list-cards`.with(
         a`.list-card`,
         a`.list-card`,
-        a`.list-card.hide`,
-        a`.list-card.placeholder`))
+        a`.list-card.hide`
+      ))
 
     cardsList = document.querySelector('.list-cards')
 
