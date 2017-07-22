@@ -18,7 +18,7 @@ document = window.document
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
 
-let req = require('require-dir')('../src/js')
+require('require-dir')('../src/js')
 
 bodyHas = element => {
   document.body.innerHTML = ''
