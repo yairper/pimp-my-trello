@@ -21,10 +21,9 @@ Card.prototype = {
   },
 
   _addTags () {
-    this.tagsList = TagsList(this)
     this.element
         .querySelector('.list-card-labels')
-        .appendChild(this.tagsList)
+        .appendChild(TagsList(this))
   },
 
   get labels () {
