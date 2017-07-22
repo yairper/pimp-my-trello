@@ -77,7 +77,7 @@ a.board-header-btn-filter-indicator {
   opacity: 0;
 }
 
-.pmt-card-tags.pmt-animate {
+.pmt-card-tags.animate-in {
   /* make scrum for trello bumping in look smoother */
   transition: opacity 0.4s linear;
   opacity: 1;

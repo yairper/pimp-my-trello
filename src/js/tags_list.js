@@ -12,6 +12,7 @@ TagsList = function (card) {
                .map(l => EpicTag(l))
 
   return a`.pmt-card-tags`
+           .animates.in
            .with(...labels.concat(icons, epics))
 }
 

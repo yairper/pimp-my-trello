@@ -23,7 +23,7 @@
       ],
       "js": [
         "src/js/helpers.js",
-        "src/js/builder.js",
+        "src/js/a_builder.js",
         "src/js/inject_fa_font_face.js",
 
         "src/js/label.js",

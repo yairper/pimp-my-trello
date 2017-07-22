@@ -18,7 +18,7 @@ document = window.document
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
 
-require('../src/js/builder')
+require('../src/js/a')
 require('../src/js/helpers')
 
 require('../src/js/cards_list_observer')

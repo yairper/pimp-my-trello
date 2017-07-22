@@ -25,9 +25,6 @@ Card.prototype = {
     this.element
         .querySelector('.list-card-labels')
         .appendChild(this.tagsList)
-
-    _.in(0, () =>
-      this.tagsList.classList.add('pmt-animate'))
   },
 
   get labels () {

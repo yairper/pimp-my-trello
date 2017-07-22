@@ -1,4 +1,4 @@
-a = new Proxy(new Function (), {
+a = an = aBuilder = new Proxy(new Function (), {
   get (__, tagName) {
     let element = document.createElement(tagName)
     _.extend(aApi, element)
@@ -41,10 +41,6 @@ a = new Proxy(new Function (), {
   }
 })
 
-an = a
-
-const animateFlag = Symbol()
-
 var aApi = {
   title (text) {
     this.setAttribute('title', text)
@@ -59,8 +55,12 @@ var aApi = {
     return this
   },
 
-  get animate () {
-    this[animateFlag] = true
+  get animates () {
+    return this
+  },
+
+  get in () {
+    _.in(0, () => this.classList.add('animate-in'))
 
     return this
   },
