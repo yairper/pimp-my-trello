@@ -1,13 +1,6 @@
 describe('Board', () => {
   afterEach(() => sandbox.restore())
 
-  let $board
-
-  before(() => {
-    bodyHas(
-    )
-  })
-
   context('trello board exists', () => {
     beforeEach(() =>
       bodyHas(
@@ -43,7 +36,7 @@ describe('Board', () => {
                                     a`.list-cards`,
                                     a`.list-cards`))
 
-      _.in(35, () => {
+      _.in(50, () => {
         expect(CardsList).to.have.been.calledTwice
         done()
       })

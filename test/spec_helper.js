@@ -18,9 +18,6 @@ document = window.document
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
 
-$ = require('jQuery')
-
-require('../src/js/zepto_extensions')
 require('../src/js/builder')
 require('../src/js/helpers')
 
@@ -32,4 +29,7 @@ require('../src/js/cards_list_observer')
 require('../src/js/cards_list')
 require('../src/js/board')
 
-bodyHas = $.fn.html.bind($('body'))
+bodyHas = element => {
+  document.body.innerHTML = ''
+  document.body.appendChild(element)
+}
