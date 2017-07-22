@@ -78,8 +78,8 @@ a.board-header-btn-filter-indicator {
 }
 
 .pmt-card-tags.animate-in {
-  /* make scrum for trello bumping in look smoother */
-  transition: opacity 0.4s linear;
+  /* helps scrum for trello pop in look smoother */
+  transition: opacity 2.7s ease-out;
   opacity: 1;
 }
 
