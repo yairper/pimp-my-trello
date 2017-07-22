@@ -60,14 +60,14 @@ a.board-header-btn-filter-indicator {
 
 .board-header-btn-name-with-org-logo > img {
   top: auto;
-  bottom: 7px;
+  bottom: 6px;
   left: 1px;
-  height: 15px;
-  width: 15px;
+  height: 18px;
+  width: 18px;
 }
 
 .board-main-content .board-header-btn-name-with-org-logo > span {
-  padding: 0 6px 0 15px;
+  padding: 0 6px 0 20px;
 }
 
 
