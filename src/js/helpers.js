@@ -3,10 +3,6 @@ _ = {
     setTimeout(fn, ms)
   },
 
-  every (ms, fn) {
-    setInterval(fn, ms)
-  },
-
   match (str, re) {
     let matches = str.match(re)
     return matches && matches[0]
@@ -30,4 +26,3 @@ _ = {
     return target
   }
 }
-
