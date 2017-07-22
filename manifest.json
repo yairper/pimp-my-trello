@@ -3,7 +3,7 @@
   "name": "Pimp my Trello",
   "homepage_url": "https://github.com/yairper/pimp-my-trello",
   "author": "Yair Perman",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "icons": {
   },
@@ -23,18 +23,17 @@
       ],
       "js": [
         "src/js/helpers.js",
-        "src/js/zepto.min.js",
-        "src/js/zepto_extensions.js",
         "src/js/builder.js",
+        "src/js/inject_fa_font_face.js",
+
         "src/js/label.js",
         "src/js/tags_list.js",
         "src/js/card.js",
         "src/js/cards_list_observer.js",
         "src/js/cards_list_mutations.js",
         "src/js/cards_list.js",
+        "src/js/replace_toggle_menu_icons.js",
         "src/js/board.js",
-        "src/js/toggle_menu_icons.js",
-        "src/js/inject_fa_font_face.js",
         "src/js/index.js"
       ],
       "css": [

@@ -33,21 +33,19 @@ p.list-header-num-cards:not(.hide) {
 
 
 
-.mod-show-menu.board-header-btn {
-  padding: 0;
-}
-
 a.mod-show-menu.board-header-btn:hover {
   background: none;
 }
 
-.mod-show-menu .board-header-btn-text {
+a.mod-show-menu .icon-sm,
+a.mod-show-menu .board-header-btn-text {
   display: none;
 }
 
 a.board-header-btn-filter-indicator {
   margin-right: 15px;
 }
+
 
 
 .board-menu-header-close-button {

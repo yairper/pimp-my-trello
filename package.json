@@ -7,9 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "jsdom": "^11.1.0"
   },
   "devDependencies": {
+    "jsdom": "^11.1.0",
     "chai": "^4.1.0",
     "mutationobserver-shim": "^0.3.2"
   },

@@ -83,6 +83,12 @@ var aApi = {
     return this
   },
 
+  html (inner) {
+    this.innerHTML = inner
+
+    return this
+  },
+
   top (position) {
     this.style.top = position
 

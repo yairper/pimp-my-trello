@@ -1,8 +1,8 @@
 Board = function () {
   if (this.hasBoardWrapper)
-    this._buildLists()
+    this._build()
 
-  this.onBoardLoad(() => this._buildLists())
+  this.onBoardLoad(() => this._build())
 }
 
 Board.prototype = {
@@ -21,9 +21,10 @@ Board.prototype = {
     observer.observe(content, { childList: true })
   },
 
-  _buildLists () {
+  _build() {
+    _.in(500, () => replcaeToggleMenuIcons())
+
     let lists = document.querySelectorAll('.list-cards')
-    _.in(0, () =>
-      lists.forEach(l => new CardsList(l)))
+    _.in(0, () => lists.forEach(l => new CardsList(l)))
   }
 }
