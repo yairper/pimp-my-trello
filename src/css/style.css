@@ -55,7 +55,7 @@ a.board-header-btn-filter-indicator {
 
 .board-header .js-open-org-menu,
 .board-header .mod-left > * {
-  opacity: .2;
+  opacity: .5;
 }
 
 .board-header .js-open-org-menu:hover,
