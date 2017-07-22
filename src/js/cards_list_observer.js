@@ -6,7 +6,7 @@ CardsListObserver = function (el, callback) {
       if (mutation.cardBeforeDropped) {
         let cardsBeforeDrop = mutation.targetList.querySelectorAll('.list-card')
 
-        _.in(1, () => {
+        _.in(100, () => {
           let cardsAfterDrop = mutation.targetList.querySelectorAll('.list-card')
 
           let addedCard
