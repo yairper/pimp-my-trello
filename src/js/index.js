@@ -1,1 +1,1 @@
-new Content()
+new Board()

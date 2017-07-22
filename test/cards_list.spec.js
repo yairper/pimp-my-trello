@@ -1,8 +1,7 @@
 describe('CardsList', () => {
   afterEach(() => sandbox.restore())
 
-  let $cardsList
-  let card
+  let cardsList
   let CardSpy
 
   beforeEach(() => {
@@ -11,58 +10,31 @@ describe('CardsList', () => {
         a`.list-card`,
         a`.list-card`,
         a`.list-card.hide`,
-        a`.list-card.placeholder`
-      )
-    )
+        a`.list-card.placeholder`))
 
-    $cardsList = document.querySelector('.list-cards')
+    cardsList = document.querySelector('.list-cards')
 
-    card = { destroy: spy() }
-    CardSpy = stub(global, 'Card').returns(card)
+    CardSpy = stub(global, 'Card')
   })
 
   describe('constructor', () => {
-    it('builds cards representation', () => {
-      new CardsList($cardsList)
+    it('builds cards', () => {
+      new CardsList(cardsList)
 
-      expect(CardSpy).to.have.been.calledTwice
+      expect(CardSpy).to.have.been.calledThrice
     })
   });
 
-  context('cardDragged', () => {
-    it('destorys removed card', () => {
-      let cardBeingRemoved = a`.list-card`
-      let cardsList        = a`.list-cards`
-                               .with(cardBeingRemoved)
+  context('card created', () => {
+    it('creates new card', (done) => {
+      new CardsList(cardsList)
+      CardSpy.reset()
 
-      bodyHas(cardsList)
+      cardsList.appendChild(a`.list-card.is-due-completed`)
 
-      let cardModelToRemove = { destroy: spy(), element: cardBeingRemoved }
-      CardSpy.withArgs(cardBeingRemoved)
-             .returns(cardModelToRemove)
-
-      stub(global, 'CardsListObserver',
-        (el, cb) => cb({ cardDragged: true, removedCard: cardBeingRemoved }))
-
-      new CardsList($('.list-cards')[0])
-
-      expect(cardModelToRemove.destroy).to.have.been.calledOnce
-    })
-  });
-
-  ['cardDropped', 'cardCreated'].forEach(event => {
-    context(event, () => {
-      it('adds new card', () => {
-        stub(_, 'in', (ms, cb) => cb())
-
-        let fireEvent
-        stub(global, 'CardsListObserver', (el, cb) => fireEvent = cb)
-
-        new CardsList($cardsList)
-
-        fireEvent({ [event]: true, addedCard: 'new card element' })
-
-        expect(CardSpy).to.have.been.calledWith('new card element')
+      _.in(50, () => {
+        expect(CardSpy).to.have.been.calledOnce
+        done()
       })
     })
   })

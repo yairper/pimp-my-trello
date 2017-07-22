@@ -22,8 +22,11 @@ function LabelTag (label) {
 
 function EpicTag (label) {
   return a`.pmt-card-epic`
-           .text(label.epicName)
            .bgColor(_.rgba(label.color, .2))
+           .with(
+             an.i`.fa.fa-fw.fa-hashtag`,
+             a.span.text(label.epicName)
+           )
 }
 
 function IconTag (label) {

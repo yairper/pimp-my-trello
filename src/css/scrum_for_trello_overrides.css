@@ -4,23 +4,33 @@
   display: inline-block;
 }
 
-.list-total {
+
+
+.list .list-total {
   font-size: 13px;
   float: left;
 }
-
-.list-total .cpoints {
+.list .list-total .cpoints {
   margin-right: 0;
 }
-
-.list-total .cpoints::after {
+.list .list-total .cpoints::after {
   content: ' / ';
 }
+
+
+
+.board-header-btns .list-total {
+  display: none;
+}
+
+
 
 div.badges {
   padding-bottom: 22px;
 }
-
+.js-badges {
+  margin-left: 1px;
+}
 .badge-points.point-count {
   position: absolute;
   top: 8px;
@@ -32,14 +42,12 @@ div.badges {
 
   background-image: none !important;
   font-size: 11px;
-  opacity: .8;
+  opacity: .7;
   text-overflow: initial;
 }
-
 .badge.badge-points.point-count.consumed {
   padding-right: 29px !important;
 }
-
 .badge.badge-points.point-count.consumed::after {
   content: '/';
   font-size: 15px;
@@ -47,18 +55,12 @@ div.badges {
   left: 27px;
   top: 1px;
 }
-
 .badge.badge-points.point-count:not(.consumed) {
   left: 37px;
   background-color: transparent !important;
   z-index: 1;
   opacity: 1;
 }
-
 .badge.badge-points:empty {
   display: inline-block !important;
-}
-
-.js-badges {
-  margin-left: 1px;
 }

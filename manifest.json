@@ -3,7 +3,7 @@
   "name": "Pimp my Trello",
   "homepage_url": "https://github.com/yairper/pimp-my-trello",
   "author": "Yair Perman",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "icons": {
   },
@@ -33,7 +33,6 @@
         "src/js/cards_list_mutations.js",
         "src/js/cards_list.js",
         "src/js/board.js",
-        "src/js/content.js",
         "src/js/toggle_menu_icons.js",
         "src/js/inject_fa_font_face.js",
         "src/js/index.js"
