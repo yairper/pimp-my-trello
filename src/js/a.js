@@ -1,4 +1,4 @@
-a = an = aBuilder = new Proxy(new Function (), {
+a = an = new Proxy(new Function (), {
   get (__, tagName) {
     let element = document.createElement(tagName)
     _.extend(aApi, element)
