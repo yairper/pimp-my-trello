@@ -6,12 +6,11 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-  },
   "devDependencies": {
-    "jsdom": "^11.1.0",
     "chai": "^4.1.0",
-    "mutationobserver-shim": "^0.3.2"
+    "jsdom": "^11.1.0",
+    "mutationobserver-shim": "^0.3.2",
+    "require-dir": "^0.3.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

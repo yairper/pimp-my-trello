@@ -23,7 +23,7 @@
       ],
       "js": [
         "src/js/helpers.js",
-        "src/js/a_builder.js",
+        "src/js/a.js",
         "src/js/inject_fa_font_face.js",
 
         "src/js/label.js",
@@ -34,7 +34,7 @@
         "src/js/cards_list.js",
         "src/js/replace_toggle_menu_icons.js",
         "src/js/board.js",
-        "src/js/index.js"
+        "src/js/index/index.js"
       ],
       "css": [
         "src/css/scrum_for_trello_overrides.css",

@@ -1,4 +1,6 @@
 Board = function () {
+  injectFAFontFace()
+
   if (this.hasBoardWrapper)
     this._build()
 

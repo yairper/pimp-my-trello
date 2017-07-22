@@ -18,16 +18,7 @@ document = window.document
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
 
-require('../src/js/a')
-require('../src/js/helpers')
-
-require('../src/js/cards_list_observer')
-require('../src/js/tags_list')
-require('../src/js/card')
-require('../src/js/cards_list_mutations')
-require('../src/js/cards_list_observer')
-require('../src/js/cards_list')
-require('../src/js/board')
+let req = require('require-dir')('../src/js')
 
 bodyHas = element => {
   document.body.innerHTML = ''

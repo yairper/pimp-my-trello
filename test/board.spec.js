@@ -1,4 +1,5 @@
 describe('Board', () => {
+  beforeEach(() => stub(global, 'injectFAFontFace'))
   afterEach(() => sandbox.restore())
 
   context('trello board exists', () => {
