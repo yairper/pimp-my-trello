@@ -7,15 +7,6 @@ CardsListMutation = {
     return this[0].target.querySelector('.active-card')
   },
 
-  get type () {
-    if (this.cardDragged) return 'cardDragged'
-    if (this.cardDropped) return 'cardDropped'
-    if (this.cardLeft) return 'cardLeft'
-    if (this.cardEnter) return 'cardEnter'
-    if (this.cardMovedOrDeleted) return 'cardMovedOrDeleted'
-    if (this.cardCreated) return 'cardCreated'
-  },
-
   get cardDragged () {
     return this._removedNodeClass.includes('js-member-droppable') &&
           !this._addedNodeClass.includes('js-member-droppable')
