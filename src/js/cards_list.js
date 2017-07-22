@@ -8,30 +8,15 @@ CardsList.prototype = {
   _buildCards() {
     let cards = this.element.querySelectorAll('.list-card')
 
-    this._cards = []
-
-    cards.forEach(c =>
-      this._cards.push(new Card(c)))
+    cards.forEach(c => new Card(c))
   },
 
   _listenToEvents () {
     let observer = CardsListObserver(this.element,
       mutation => {
-        if (mutation.cardCreated)
-          this._cards.push(new Card(mutation.addedCard))
-
-        if (mutation.cardDropped) {
-          let card = this._cards.find(
-            c => c.element == mutation.addedCard)
-
-          let cardCameFromAnotherList = !card
-          if (cardCameFromAnotherList) {
-            // wait for added card to have parent
-            _.in(0, () => {
-              this._cards.push(new Card(mutation.addedCard))
-            })
-          }
-        }
+        if (mutation.cardCreated ||
+            mutation.cardDropped)
+          new Card(mutation.addedCard)
       }
     )
   },

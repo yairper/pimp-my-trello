@@ -1,9 +1,32 @@
 CardsListObserver = function (el, callback) {
   let observer = new MutationObserver(
-    mutations => {
-      _.extend(CardsListMutation, mutations)
+    mutation => {
+      _.extend(CardsListMutation, mutation)
 
-      callback(mutations)
+      if (mutation.cardBeforeDropped) {
+        let cardsBeforeDrop = mutation.targetList.querySelectorAll('.list-card')
+
+        _.in(1, () => {
+          let cardsAfterDrop = mutation.targetList.querySelectorAll('.list-card')
+
+          let addedCard
+
+          cardsAfterDrop.forEach(element => {
+            if (!Array.prototype.includes.call(
+                  cardsBeforeDrop, element))
+              addedCard = element
+          })
+
+          if (addedCard)
+            callback({
+              cardDropped: true,
+              addedCard
+            })
+        })
+      }
+      else {
+        callback(mutation)
+      }
     })
 
   observer.observe(el, { childList: true })

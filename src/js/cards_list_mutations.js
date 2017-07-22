@@ -1,11 +1,19 @@
 CardsListMutation = {
+  get targetList () {
+    return this[0].target
+  },
+
   get addedCard () {
-    // TODO: could be other than .active-card
     return this[0].target.querySelector('.active-card')
   },
 
-  get removedCard () {
-    return this._removedNode
+  get type () {
+    if (this.cardDragged) return 'cardDragged'
+    if (this.cardDropped) return 'cardDropped'
+    if (this.cardLeft) return 'cardLeft'
+    if (this.cardEnter) return 'cardEnter'
+    if (this.cardMovedOrDeleted) return 'cardMovedOrDeleted'
+    if (this.cardCreated) return 'cardCreated'
   },
 
   get cardDragged () {
@@ -13,7 +21,7 @@ CardsListMutation = {
           !this._addedNodeClass.includes('js-member-droppable')
   },
 
-  get cardDropped () {
+  get cardBeforeDropped () {
     return this._addedNodeClass.includes('js-member-droppable') &&
            this._removedNodeClass.includes('placeholder')
   },
