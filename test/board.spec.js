@@ -69,11 +69,11 @@ describe('Board', () => {
         CardsList.reset()
 
         content.appendChild(boardWrapper)
+      })
 
-        _.in(10, () => {
-          expect(CardsList).to.have.been.called
-          done()
-        })
+      _.in(20, () => {
+        expect(CardsList).to.have.been.called
+        done()
       })
     })
   })
