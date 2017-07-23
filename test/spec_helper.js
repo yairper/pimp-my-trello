@@ -4,10 +4,10 @@ chai.use(sinonChai)
 
 expect = chai.expect
 
-const sinon = require('sinon')
+sinon   = require('sinon')
 sandbox = sinon.sandbox
-stub = sandbox.stub.bind(sandbox)
-spy  = sandbox.spy.bind(sandbox)
+stub    = sandbox.stub.bind(sandbox)
+spy     = sandbox.spy.bind(sandbox)
 
 const { JSDOM } = require('jsdom')
 const dom       = new JSDOM('')

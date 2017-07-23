@@ -1,8 +1,8 @@
 CardsList = function (element) {
   this.element = element
   this._buildCards()
-  let observer = CardAddedObserver(element,
-                   addedCard => new Card(addedCard))
+
+  CardAddedObserver(element, addedCard => new Card(addedCard))
 }
 
 CardsList.prototype = {

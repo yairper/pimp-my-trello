@@ -2,15 +2,15 @@ describe('CardsList', () => {
   afterEach(() => sandbox.restore())
 
   let cardsList
+  let cards
   let CardSpy
 
   beforeEach(() => {
-    bodyHas(
-      a`.list-cards`.with(
-        a`.list-card`,
-        a`.list-card`,
-        a`.list-card.hide`
-      ))
+    cards = [ a`.list-card`,
+              a`.list-card`,
+              a`.list-card.hide` ]
+
+    bodyHas(a`.list-cards`.with(...cards))
 
     cardsList = document.querySelector('.list-cards')
 
@@ -22,6 +22,8 @@ describe('CardsList', () => {
       new CardsList(cardsList)
 
       expect(CardSpy).to.have.been.calledThrice
+      expect(CardSpy).to.have.been.calledWith(
+        sinon.match.instanceOf(window.HTMLElement))
     })
   });
 
@@ -30,10 +32,37 @@ describe('CardsList', () => {
       new CardsList(cardsList)
       CardSpy.reset()
 
-      cardsList.appendChild(a`.list-card.is-due-completed`)
+      let newCard = a`.list-card.is-due-completed.active-card`
+      cardsList.appendChild(newCard)
 
       _.in(10, () => {
-        expect(CardSpy).to.have.been.calledOnce
+        expect(CardSpy).to.have.been.calledWith(newCard)
+        done()
+      })
+    })
+  })
+
+  context('card dropped', () => {
+    it('creates new card', (done) => {
+      let cardPlaceholder = a`.list-card.placeholder`
+      let blinkingCard    = a`.list-card.js-member-droppable`
+      let cardDropped     = a`.list-card.js-member-droppable`
+
+      new CardsList(cardsList)
+      CardSpy.reset()
+
+      cardsList.appendChild(cardPlaceholder)
+
+      _.in(0, () => {
+        cardsList.removeChild(cardPlaceholder)
+        cardsList.appendChild(blinkingCard)
+      })
+      _.in(100, () => {
+        cardsList.removeChild(blinkingCard)
+        cardsList.appendChild(cardDropped)
+      })
+      _.in(110, () => {
+        expect(CardSpy).to.have.been.calledWith(cardDropped)
         done()
       })
     })
