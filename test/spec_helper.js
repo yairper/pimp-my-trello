@@ -17,6 +17,7 @@ document = window.document
 
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
+MutationObserver._period = 0
 
 require('require-dir')('../src/js')
 

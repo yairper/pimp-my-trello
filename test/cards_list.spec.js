@@ -32,7 +32,7 @@ describe('CardsList', () => {
 
       cardsList.appendChild(a`.list-card.is-due-completed`)
 
-      _.in(50, () => {
+      _.in(10, () => {
         expect(CardSpy).to.have.been.calledOnce
         done()
       })

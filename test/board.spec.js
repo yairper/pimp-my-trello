@@ -37,7 +37,7 @@ describe('Board', () => {
                                     a`.list-cards`,
                                     a`.list-cards`))
 
-      _.in(50, () => {
+      _.in(10, () => {
         expect(CardsList).to.have.been.calledTwice
         done()
       })
@@ -65,12 +65,12 @@ describe('Board', () => {
 
       content.innerHTML = ''
 
-      _.in(35, () => {
+      _.in(10, () => {
         CardsList.reset()
 
         content.appendChild(boardWrapper)
 
-        _.in(35, () => {
+        _.in(10, () => {
           expect(CardsList).to.have.been.called
           done()
         })
