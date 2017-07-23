@@ -29,7 +29,7 @@
         "src/js/label.js",
         "src/js/tags_list.js",
         "src/js/card.js",
-        "src/js/cards_list_observer.js",
+        "src/js/card_added_observer.js",
         "src/js/cards_list_mutations.js",
         "src/js/cards_list.js",
         "src/js/replace_toggle_menu_icons.js",
