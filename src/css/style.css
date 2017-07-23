@@ -53,11 +53,13 @@ a.board-header-btn-filter-indicator {
 
 
 
+.board-header #burndownLink,
 .board-header .js-open-org-menu,
 .board-header .mod-left > * {
   opacity: .5;
 }
 
+.board-header #burndownLink:hover,
 .board-header .js-open-org-menu:hover,
 .board-header .mod-left > :hover {
   opacity: 1;
