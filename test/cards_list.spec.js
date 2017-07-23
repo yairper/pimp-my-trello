@@ -21,9 +21,9 @@ describe('CardsList', () => {
     it('builds cards', () => {
       new CardsList(cardsList)
 
-      expect(CardSpy).to.have.been.calledThrice
-      expect(CardSpy).to.have.been.calledWith(
-        sinon.match.instanceOf(window.HTMLElement))
+      expect(CardSpy.firstCall ).to.have.been.calledWith(cards[0])
+      expect(CardSpy.secondCall).to.have.been.calledWith(cards[1])
+      expect(CardSpy.thirdCall ).to.have.been.calledWith(cards[2])
     })
   });
 
