@@ -33,6 +33,9 @@ div.list-card-labels {
 }
 
 
+a.mod-show-menu {
+  padding-left: 0;
+}
 
 a.mod-show-menu.board-header-btn:hover {
   background: none;
