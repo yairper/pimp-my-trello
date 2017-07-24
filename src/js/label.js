@@ -1,4 +1,4 @@
-class Label {
+Label = class {
   constructor (element) {
     this.element = element
   }

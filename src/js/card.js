@@ -1,19 +1,17 @@
 Card = function (element) {
   this.element = element
 
-  this._rebuildTagsOnLabelsChange()
   this._addTags()
+  this._onLabelsChange(() => this._addTags())
 }
 
 Card.prototype = {
-  _rebuildTagsOnLabelsChange () {
+  _onLabelsChange (cb) {
     let labelsChanged = new MutationObserver(mutations => {
       _.extend(CardsListMutation, mutations)
 
-      if (mutations._addedNodeClass.includes('pmt-card-tags'))
-        return
-
-      this._addTags()
+      if (!mutations._addedNodeClass.includes('pmt-card-tags'))
+        cb()
     })
 
     let labels = this.element.querySelector('.list-card-labels')
