@@ -17,8 +17,9 @@ p.list-header-num-cards:not(.hide) {
   bottom: 2px;
 }
 
-.list-card-labels {
+div.list-card-labels {
   min-height: 21px;
+  overflow: visible;
 }
 
 /* overrides collapsing on drag */
