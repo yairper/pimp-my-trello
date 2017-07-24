@@ -39,6 +39,7 @@
       "css": [
         "src/css/scrum_for_trello_overrides.css",
         "src/css/style.css",
+        "src/css/pmt_card_tags.css",
         "src/css/font-awesome.min.css"
       ]
     }
