@@ -1,0 +1,60 @@
+.pmt-card-tags {
+  width: 205px;
+  opacity: 0;
+}
+
+.pmt-card-tags.animate-in {
+  /* helps scrum for trello pop in look smoother */
+  transition: opacity 2.5s ease-out;
+  opacity: 1;
+}
+
+.pmt-card-tags > i:first-child,
+.pmt-card-tags > span:first-child {
+  margin-left: 63px;
+}
+
+.pmt-card-tags > * {
+  margin-right: 5px;
+}
+
+.pmt-card-tags > span {
+  display: inline-block;
+  min-width: 10px;       /* text.length == 1 */
+  text-align: center;    /* text.length <= 1 */
+}
+
+.pmt-card-tags > span:empty {
+  height: 18px;
+}
+
+.pmt-card-tags > div,
+.pmt-card-tags > span {
+  vertical-align: top;
+  padding: 0 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #666;
+}
+
+.pmt-card-tags > div {
+  width: 220px;
+  padding-top:    3px;
+  padding-bottom: 3px;
+}
+
+.pmt-card-tags div:first-child {
+  margin-top: 23px;
+}
+
+.pmt-card-tags > i,
+.pmt-card-tags > span {
+  height: 18px;
+  margin-bottom: 5px;
+}
+
+.pmt-card-tags > i {
+  font-size: 18px;
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
