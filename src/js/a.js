@@ -48,9 +48,8 @@ var aApi = {
   },
 
   ['with'] (...children) {
-    children.forEach(child => {
-      this.appendChild(child)
-    })
+    children.forEach(ch => this.appendChild(ch))
+
     return this
   },
 
