@@ -27,7 +27,7 @@ Card.prototype = {
   get labels () {
     let labels = this.element.querySelectorAll('.card-label')
 
-    results = []
+    let results = []
     labels.forEach(l => results.push(new Label(l)))
     return results
   }
