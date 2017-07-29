@@ -35,7 +35,7 @@ describe('CardsList', () => {
       let newCard = a`.list-card.is-due-completed.active-card`
       cardsList.appendChild(newCard)
 
-      _.in(10, () => {
+      _.in(20, () => {
         expect(CardSpy).to.have.been.calledWith(newCard)
         done()
       })

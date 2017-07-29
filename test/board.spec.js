@@ -62,13 +62,14 @@ describe('Board', () => {
 
       content.innerHTML = ''
 
-      _.in(10, () => {
+      _.in(0, () => {
         CardsList.reset()
 
         content.appendChild(boardWrapper)
       })
 
       _.in(20, () => {
+        expect(CardsList).to.have.been.calledTwice
         expect(CardsList.firstCall ).to.have.been.calledWith(listCards[0])
         expect(CardsList.secondCall).to.have.been.calledWith(listCards[1])
         done()

@@ -14,6 +14,7 @@ const dom       = new JSDOM('')
 
 window   = dom.window
 document = window.document
+HTMLElement = window.HTMLElement
 
 require('mutationobserver-shim')
 MutationObserver = window.MutationObserver
