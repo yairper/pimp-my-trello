@@ -65,9 +65,8 @@ injectTagsFilter = function () {
 
   let lists = doc.all`.list-cards`
   lists.each(list =>
-    CardCreatedObserver(list, card =>
-      _toggleCardVisibilityByFilters(card)
-    )
+    CardCreatedObserver(list,
+      _toggleCardVisibilityByFilters)
   )
 
   let cards = doc.all`.list-card`.as(Card.prototype)
@@ -90,9 +89,8 @@ injectTagsFilter = function () {
       if (selectedFilters.length)
         tagsFilter.classList.add('has-some-selected-tags')
 
-      doc.all`.list-card`.each(card => {
-        _toggleCardVisibilityByFilters(card)
-      })
+      doc.all`.list-card`.each(
+        _toggleCardVisibilityByFilters)
     }
   })
 }
