@@ -30,6 +30,10 @@
   opacity: .5;
 }
 
+#tags-filter > .fa-tags:hover  {
+  opacity: .75;
+}
+
 .mod-right .pmt-card-tags > div {
   display: inline-block;
 }
