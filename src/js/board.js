@@ -103,9 +103,9 @@ function _toggleCardVisibilityByFilters(card) {
     cardTags.some(tag =>
       filter.tagName     == tag.tagName &&
       filter.textContent == tag.textContent &&
+      filter.className.includes(tag.className) &&
       (filter.tagName == 'I' ?
        filter.style.color == tag.style.color :
-       filter.className.includes(tag.className) &&
        filter.style.backgroundColor == tag.style.backgroundColor)
     ))
 
