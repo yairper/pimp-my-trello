@@ -34,7 +34,7 @@ a = an = new Proxy(new Function (), {
   }
 })
 
-function templateToString (template) {
+templateToString = function (template) {
   return template[0].reduce((full, part, idx) =>
     full + part + (template[idx + 1] || ''),
     '')

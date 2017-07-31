@@ -2,11 +2,15 @@ Card = function (element) {
   this.element = element
 
   this._addTags()
-  this._onLabelsChange(() => this._addTags())
+  this.onLabelsChange(() => this._addTags())
 }
 
 Card.prototype = {
-  _onLabelsChange (cb) {
+  included () {
+    this.element = this
+  },
+
+  onLabelsChange (cb) {
     let labelsChanged = new MutationObserver(mutations => {
       _.extend(CardsListMutation, mutations)
 
@@ -21,7 +25,7 @@ Card.prototype = {
   _addTags () {
     this.element
         .querySelector('.list-card-labels')
-        .appendChild(TagsList(this))
+        .appendChild(TagsList(this.labels))
   },
 
   get labels () {

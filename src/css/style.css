@@ -34,6 +34,9 @@ div.list-card-labels {
 
 
 a.mod-show-menu {
+  position: absolute;
+  right: 0;
+
   padding-left: 0;
 }
 
@@ -48,6 +51,11 @@ a.mod-show-menu .board-header-btn-text {
 
 a.board-header-btn-filter-indicator {
   margin-right: 15px;
+}
+
+
+div.board-menu {
+  z-index: 11;
 }
 
 .board-menu-header-close-button {

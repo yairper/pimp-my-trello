@@ -1,19 +1,19 @@
-TagsList = function (card) {
-  let labels =
-    card.labels.filter(l => l.type == 'label')
-               .map(l => LabelTag(l))
+TagsList = function (labels) {
+  let raws =
+    labels.filter(l => l.type == 'label')
+          .map(l => LabelTag(l))
 
   let icons =
-    card.labels.filter(l => l.type == 'icon')
-               .map(l => IconTag(l))
+    labels.filter(l => l.type == 'icon')
+          .map(l => IconTag(l))
 
   let epics =
-    card.labels.filter(l => l.type == 'epic')
-               .map(l => EpicTag(l))
+    labels.filter(l => l.type == 'epic')
+          .map(l => EpicTag(l))
 
   return a`.pmt-card-tags`
            .animates.in
-           .with(...labels.concat(icons, epics))
+           .with(...raws.concat(icons, epics))
 }
 
 function LabelTag (label) {

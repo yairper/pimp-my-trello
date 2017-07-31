@@ -1,0 +1,89 @@
+#tags-filter {
+  position: fixed;
+  right: 48px;
+  top: 51px;
+  z-index: 10;
+}
+
+#tags-filter:hover > .pmt-card-tags {
+  max-width: 1080px;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+}
+
+#tags-filter > .pmt-card-tags {
+  display: inline-block;
+  min-height: 28px;
+  max-width: 0;
+  overflow: hidden;
+
+  opacity: 0;
+  transition: opacity 1.5s ease-in 1.5s, max-width 1ms linear 3s;
+}
+
+#tags-filter > .fa-tags  {
+  position: relative;
+  top: 7px;
+  vertical-align: top;
+  color: #fff;
+
+  opacity: .5;
+}
+
+.mod-right .pmt-card-tags > div {
+  display: inline-block;
+}
+
+.mod-right .pmt-card-tags > span:empty {
+  vertical-align: top;
+}
+
+.mod-right .pmt-card-tags > * {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+
+  min-width: 14px;
+  min-height: 14px;
+  line-height: 14px;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+
+  opacity: .5;
+}
+
+.mod-right .pmt-card-tags > :not(.selected) {
+  background-color: white !important;
+}
+
+.mod-right .pmt-card-tags > :hover {
+  opacity: .75;
+}
+
+.mod-right .pmt-card-tags > .selected {
+  opacity: 1;
+}
+
+.mod-right .pmt-card-tags > ::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 3px;
+
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+}
+
+#tags-filter .pmt-card-tags > div > .fa-hashtag {
+  display: none;
+}
+
+#tags-filter.has-some-selected-tags > .fa-tags {
+  opacity: 1;
+}
